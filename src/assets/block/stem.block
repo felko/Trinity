@@ -1,0 +1,7 @@
+{
+    "drops": ["stem"],
+    "break_sound": "wooden.ogg",
+    "texture": "stem.png",
+    "opaque": true,
+    "solid": false
+}

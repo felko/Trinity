@@ -1,0 +1,7 @@
+{
+    "drops": [],
+    "break_sound": "soft.ogg",
+    "texture": "leaves.png",
+    "opaque": false,
+    "solid": true
+}

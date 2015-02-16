@@ -1,0 +1,7 @@
+{
+    "drops": ["sapphire"],
+    "break_sound": "stony.ogg",
+    "texture": "sapphire.png",
+    "opaque": true,
+    "solid": true
+}

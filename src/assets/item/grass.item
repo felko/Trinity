@@ -1,0 +1,6 @@
+{
+    "name": "Grass",
+    "type": "block",
+    "icon": "grass.png",
+    "to_block": "grass"
+}

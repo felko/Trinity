@@ -1,0 +1,6 @@
+{
+    "name": "Emerald",
+    "type": "block",
+    "icon": "emerald.png",
+    "to_block": "emerald"
+}

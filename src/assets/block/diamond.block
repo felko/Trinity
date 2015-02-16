@@ -1,0 +1,7 @@
+{
+    "drops": ["diamond"],
+    "break_sound": "stony.ogg",
+    "texture": "diamond.png",
+    "opaque": true,
+    "solid": true
+}

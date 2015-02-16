@@ -1,0 +1,6 @@
+{
+    "name": "Planks",
+    "type": "block",
+    "icon": "planks.png",
+    "to_block": "planks"
+}

@@ -1,0 +1,7 @@
+{
+    "drops": ["dirt"],
+    "break_sound": "gravelly.ogg",
+    "texture": "grass.png",
+    "opaque": true,
+    "solid": true
+}

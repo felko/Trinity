@@ -1,0 +1,6 @@
+{
+    "name": "Leaves",
+    "type": "block",
+    "icon": "leaves.png",
+    "to_block": "leaves"
+}

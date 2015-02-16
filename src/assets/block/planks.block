@@ -1,0 +1,7 @@
+{
+    "drops": ["planks"],
+    "break_sound": "wooden.ogg",
+    "texture": "planks.png",
+    "opaque": true,
+    "solid": true
+}

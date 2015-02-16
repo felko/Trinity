@@ -1,0 +1,7 @@
+{
+    "drops": [],
+    "texture": "window.png",
+    "break_sound": "glass.ogg",
+    "opaque": false,
+    "solid": true
+}

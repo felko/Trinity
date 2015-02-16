@@ -1,0 +1,7 @@
+{
+    "drops": ["ruby"],
+    "break_sound": "stony.ogg",
+    "texture": "ruby.png",
+    "opaque": true,
+    "solid": true
+}

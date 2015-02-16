@@ -1,0 +1,6 @@
+{
+    "name": "Sapphire",
+    "type": "block",
+    "icon": "sapphire.png",
+    "to_block": "sapphire"
+}

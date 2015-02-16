@@ -1,0 +1,6 @@
+{
+    "name": "Stone",
+    "type": "block",
+    "icon": "stone.png",
+    "to_block": "stone"
+}

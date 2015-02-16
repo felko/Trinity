@@ -1,0 +1,6 @@
+{
+    "name": "Ruby",
+    "type": "block",
+    "icon": "ruby.png",
+    "to_block": "ruby"
+}

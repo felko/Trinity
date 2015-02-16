@@ -1,0 +1,7 @@
+{
+    "drops": ["gold"],
+    "break_sound": "stony.ogg",
+    "texture": "gold.png",
+    "opaque": true,
+    "solid": true
+}

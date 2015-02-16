@@ -1,0 +1,7 @@
+{
+    "drops": ["cobble"],
+    "break_sound": "stony.ogg",
+    "texture": "cobble.png",
+    "opaque": true,
+    "solid": true
+}

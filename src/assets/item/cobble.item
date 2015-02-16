@@ -1,0 +1,6 @@
+{
+    "name": "Cobble",
+    "type": "block",
+    "icon": "cobble.png",
+    "to_block": "cobble"
+}

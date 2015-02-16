@@ -1,0 +1,6 @@
+{
+    "name": "Window Pane",
+    "type": "block",
+    "icon": "window.png",
+    "to_block": "window"
+}

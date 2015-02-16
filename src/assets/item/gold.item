@@ -1,0 +1,6 @@
+{
+    "name": "Gold",
+    "type": "block",
+    "icon": "gold.png",
+    "to_block": "gold"
+}

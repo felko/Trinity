@@ -1,0 +1,6 @@
+{
+    "name": "Stem",
+    "type": "block",
+    "icon": "stem.png",
+    "to_block": "stem"
+}

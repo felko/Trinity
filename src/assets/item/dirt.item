@@ -1,0 +1,6 @@
+{
+    "name": "Dirt",
+    "type": "block",
+    "icon": "dirt.png",
+    "to_block": "dirt"
+}
