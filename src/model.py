@@ -111,12 +111,3 @@ class MapModel(list):
             return random.choice(potential_spawn_points)
         except IndexError:
             return 0, 0
-
-    def move_player_pxl(self, dpx, dpy):
-        if dpx > 0:
-            self.player.enter(MovingRight)
-        elif dpx < 0:
-            self.player.enter(MovingLeft)
-        else:
-            self.player.enter(Idle)
-        self.player.move_pxl(dpx, dpy)
