@@ -9,15 +9,15 @@ from src.items import Item
 
 
 class Tile(Locatable):
-	def __init__(self, block, pos):
-		self.block = block
-		self.x, self.y = pos
+    def __init__(self, block, pos):
+        self.block = block
+        self.x, self.y = pos
 
-	def __repr__(self):
-		return "<{} ({}, {})>".format(
-			self.block.name,
-			self.tx, self.ty
-		)
+    def __repr__(self):
+        return "<{} ({}, {})>".format(
+            self.block.name,
+            self.tx, self.ty
+        )
 
-	def __bool__(self):
-		return self.block.solid
+    def __bool__(self):
+        return self.block.solid
