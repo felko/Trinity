@@ -101,13 +101,13 @@ class Chunk(list):
 
         #-------------------- Structure setting --------------------#
 
-        new_array = self[:]
-
-        for y, line in enumerate(self):
-            for x, block in enumerate(line):
-                for s in self.structs:
-                    if s.cond(self, (x, y)):
-                        self.add_structure(s, (x, y))
+        # new_array = self[:]
+        #
+        # for y, line in enumerate(self):
+        #     for x, block in enumerate(line):
+        #         for s in self.structs:
+        #             if s.cond(self, (x, y)):
+        #                 self.add_structure(s, (x, y))
 
         #----------------------- Tile setting ----------------------#
 

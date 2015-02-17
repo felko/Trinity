@@ -28,21 +28,27 @@ class MapView(pg.Surface):
 
     def render(self):
         self.fill(0x4088DD)
-        for tile in self.model.tiles():
-            if tile.px in range(
-                self.model.xfov.start - TILE_W,
-                self.model.xfov.stop + TILE_W
-            ) and tile.py in range(
-                self.model.yfov.start - TILE_H,
-                self.model.yfov.stop + TILE_H
-            ):
-                self.blit(
-                    tile.block.texture,
-                    (
-                        tile.px - self.model.xfov.start,
-                        tile.py - self.model.yfov.start
+        chunks = slice(
+            max(self.model.player.tx//CHUNK_W-CHUNK_IN_SCREEN//2, 0),
+            min(self.model.player.tx//CHUNK_W+CHUNK_IN_SCREEN//2+1, len(self.model))
+        )
+        print(chunks)
+        for chunk in self.model[chunks]:
+            for tile in chunk.tiles():
+                if tile.px in range(
+                    self.model.xfov.start - TILE_W,
+                    self.model.xfov.stop + TILE_W
+                ) and tile.py in range(
+                    self.model.yfov.start - TILE_H,
+                    self.model.yfov.stop + TILE_H
+                ):
+                    self.blit(
+                        tile.block.texture,
+                        (
+                            tile.px - self.model.xfov.start,
+                            tile.py - self.model.yfov.start
+                        )
                     )
-                )
         x = sorted((0, self.model.player.px - self.model.xfov.start, self.model.width * TILE_W))[1]
         y = sorted((0, self.model.player.py - self.model.yfov.start, self.model.height * TILE_H))[1]
         self.blit(self.model.player.sprite, (x, y))

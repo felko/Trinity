@@ -8,7 +8,7 @@ from src import *
 
 
 def main():
-    map_model = MapModel.generate(2, CHUNK_H)
+    map_model = MapModel.generate(32, CHUNK_H)
     hotbar = HotBar(9)
     player = Player(map_model, 'Patrick', map_model.get_random_spawn_point(), hotbar)
     selector = Selector(map_model)
