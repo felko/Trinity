@@ -101,14 +101,18 @@ class Idle(XMovementState):
             Jumping.update(self, dt)
 
 
-@state()
+@state(True)
 class Falling(YMovementState):
     @classmethod
     def on_enter(cls, player):
-        player.falling_time = 1
+        player.fall_time = 1
+
+    @classmethod
+    def on_exit(cls, player):
+        player.fall_time = 1
 
     def update(self, dt):
-        self.velocity_y = lambda dt:  (math.log(self.fall_time) - 2) * self.fall_time / self.gravity
+        self.velocity_y = lambda dt: -(math.log(self.fall_time) - 2) * self.fall_time * -2 / (self.gravity/10)
         self.fall_time += dt
 
         neighbors = self.model.get_neighbors(*self.tpos)
