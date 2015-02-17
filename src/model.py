@@ -5,16 +5,17 @@ import random
 
 from src.map_generator.generate import Generate
 from src.map_generator.blocks import Block
+from src.map_generator.chunk import Chunk
 from src.tile import Tile
 from src.constants import *
 from src.player_states import *
 
 
 class MapModel(list):
-    def __init__(self, w, h, player=None):
-        super().__init__([([Block.by_name['air']] * w).copy() for _ in range(h)])
+    def __init__(self, *chunks,  player=None):
+        super().__init__(chunks)
         self.player = player
-        self.width, self.height = w, h
+        self.width, self.height = len(chunks) * CHUNK_W, CHUNK_H
         self.xfov = slice(0, 1)
         self.yfov = slice(0, 1)
 
@@ -25,7 +26,7 @@ class MapModel(list):
         elif isinstance(item, tuple):
             x, y = item
             if isinstance(x, int) and x >= 0 and isinstance(y, int) and y >= 0:
-                return self[y][x]
+                return self[x // CHUNK_W][x % CHUNK_W, y]
             else:
                 return Tile(Block('void'), item)
 
@@ -34,7 +35,7 @@ class MapModel(list):
 
     def __setitem__(self, item, value):
         if not isinstance(value, (Tile, Block)):
-            raise TypeError('must be Tile or Block object.')
+            raise TypeError('must be Tile or Block object (got {}).'.format(value.__class__.__name__))
 
         if isinstance(item, (int, slice)):
             super().__setitem__(item, value)
@@ -50,23 +51,23 @@ class MapModel(list):
                     pos=item
                 )
             if isinstance(x, int) and isinstance(y, int):
-                self[y][x] = value
+                self[x // CHUNK_W][x % CHUNK_W, y] = value
             else:
                 raise TypeError('coordinates must be integers.')
 
         else:
             raise TypeError('item must be an integer, a slice or a tuple.')
 
+    def __add__(self, other):
+        new = self[:]
+        for y, line in enumerate(other):
+            new[y] += line
+        return new
+
     @classmethod
-    def generate(cls, w, h):
-        model = MapModel(w, h)
-        generated = Generate(length=w, flatness=4, height=range(1, h), deniv=1)
-
-        for y, row in enumerate(generated):
-            for x, block in enumerate(row):
-                model[x, y] = block
-
-        return model
+    def generate(cls, w, h=CHUNK_H):
+        generated = Generate(headstart=h//2, flatness=4, deniv=1, size=(w, h))
+        return MapModel(*generated)
 
     def update(self, dt):
         neighbors = self.get_neighbors(*self.player.tpos)
@@ -78,8 +79,8 @@ class MapModel(list):
         self.player.update(dt)
 
     def tiles(self):
-        for line in self:
-            for tile in line:
+        for chunk in self:
+            for tile in chunk.tiles():
                 yield tile
 
     def get_neighbors(self, tx, ty):

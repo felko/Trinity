@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os; print(os.chdir(r'C:\Users\Jean\Documents\GitHub\Trinity'))
+import os
+print(os.chdir('/'.join(__file__.split('/')[:-1])))
 
 from src import *
 
 
 def main():
-    map_model = MapModel.generate(128, 64)
+    map_model = MapModel.generate(2, CHUNK_H)
     hotbar = HotBar(9)
     player = Player(map_model, 'Patrick', map_model.get_random_spawn_point(), hotbar)
     selector = Selector(map_model)
