@@ -81,7 +81,7 @@ class Game:
     def start(self):
         running = True
         while running:
-            dt = self.clock.tick()
+            dt = self.clock.tick(FRAMERATE)
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     running = False
@@ -94,7 +94,6 @@ class Game:
             self.view.render()
             self.screen.blit(self.view, (0, 0))
             pg.display.flip()
-            pg.time.wait(int((1 / 120) * 1000))
 
 
 from .player_states import *

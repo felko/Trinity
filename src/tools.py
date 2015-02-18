@@ -75,5 +75,11 @@ def load_item_icon(path):
     return img
 
 
+def load_sound(path):
+    sound = pg.mixer.Sound(normalize_path(path))
+    sound.set_volume(SOUND_VOLUME)
+    return sound
+
+
 def normalize_path(path):
     return os.path.join(*path.split('/'))

@@ -112,7 +112,7 @@ class Falling(YMovementState):
         player.fall_time = 1
 
     def update(self, dt):
-        self.velocity_y = lambda dt: -(math.log(self.fall_time) - 2) * self.fall_time * -3 / (self.gravity/10)
+        self.velocity_y = lambda dt: (math.log(self.fall_time) - 2) * 2 / self.gravity
         self.fall_time += dt
 
         neighbors = self.model.get_neighbors(*self.tpos)
@@ -144,7 +144,7 @@ class Jumping(YMovementState):
         player.jump_time = 1
 
     def update(self, dt):
-        self.velocity_y = lambda dt: ((-self.jump_time * (self.jump_time - self.gravity)) / ((self.gravity / 2) ** 2)) * self.jump_height
+        self.velocity_y = lambda dt: ((-self.jump_time * (self.jump_time - self.gravity * 1000)) / ((self.gravity * 500) ** 2)) * self.jump_height
 
         self.jump_time += dt
         new_y = self.jump_start - self.velocity_y(dt)

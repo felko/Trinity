@@ -36,7 +36,7 @@ class Player(Locatable, MultiBehavioral):
         self.jump_height = 100
         self.jump_start = self.py
 
-        self.gravity = 1000
+        self.gravity = 1
 
     def take_item(self, item):
         if not self.hotbar.is_full() or item in self.hotbar:

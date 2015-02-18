@@ -22,17 +22,20 @@ class GameView(pg.Surface):
 
 
 class MapView(pg.Surface):
+    background = load_tile_size_image('src/assets/gui/map_background.png')
+
     def __init__(self, map_model, size=(SCREEN_W, SCREEN_H)):
         super().__init__(size)
         self.model = map_model
 
     def render(self):
         self.fill(0x4088DD)
+
         chunks = slice(
             max(self.model.player.tx//CHUNK_W-CHUNK_IN_SCREEN//2, 0),
             min(self.model.player.tx//CHUNK_W+CHUNK_IN_SCREEN//2+1, len(self.model))
         )
-        print(chunks)
+
         for chunk in self.model[chunks]:
             for tile in chunk.tiles():
                 if tile.px in range(

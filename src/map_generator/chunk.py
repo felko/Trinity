@@ -21,6 +21,7 @@ class Chunk(list):
         width, height = size
 
         #---------------- Binary terrain generation ----------------#
+
         array = [[VOID for iy in range(height)] for ix in range(width)]
         mem = width * [0]
         mem[0] = headstart
