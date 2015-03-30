@@ -9,6 +9,10 @@ from src import *
 def main():
     map_model = MapModel.generate(128, 64)
     hotbar = HotBar(9)
+
+    hotbar.add(Item.by_name['window'])
+    hotbar.add(Item.by_name['planks'])
+
     player = Player(map_model, 'Patrick', map_model.get_random_spawn_point(), hotbar)
     selector = Selector(map_model)
 
